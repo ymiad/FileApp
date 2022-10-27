@@ -13,12 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAppModel", "FileAppMode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAppHelper", "FileAppHelper\FileAppHelper.csproj", "{174131F5-5A08-4724-99B0-D4546B1A3877}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FileAppAzure", "FileAppAzure", "{91AF4602-BBCA-4164-91F5-02817965997F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{B29F4F2D-010C-4E99-A155-BA15D8EFD8AE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileApp.FileUpload", "FileApp.FileUpload\FileApp.FileUpload.csproj", "{8364EFC7-C16A-455D-B1B6-F2A0282D9A32}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,17 +39,9 @@ Global
 		{174131F5-5A08-4724-99B0-D4546B1A3877}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{174131F5-5A08-4724-99B0-D4546B1A3877}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{174131F5-5A08-4724-99B0-D4546B1A3877}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8364EFC7-C16A-455D-B1B6-F2A0282D9A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8364EFC7-C16A-455D-B1B6-F2A0282D9A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8364EFC7-C16A-455D-B1B6-F2A0282D9A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8364EFC7-C16A-455D-B1B6-F2A0282D9A32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{B29F4F2D-010C-4E99-A155-BA15D8EFD8AE} = {91AF4602-BBCA-4164-91F5-02817965997F}
-		{8364EFC7-C16A-455D-B1B6-F2A0282D9A32} = {B29F4F2D-010C-4E99-A155-BA15D8EFD8AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82335FCF-C4A3-4167-9C0D-A1151818B355}
