@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAppRepository", "FileAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAppModel", "FileAppModel\FileAppModel.csproj", "{425F77CC-8CFB-4D76-BD49-1234F3E2C2FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAppHelper", "FileAppHelper\FileAppHelper.csproj", "{174131F5-5A08-4724-99B0-D4546B1A3877}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{425F77CC-8CFB-4D76-BD49-1234F3E2C2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{425F77CC-8CFB-4D76-BD49-1234F3E2C2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{425F77CC-8CFB-4D76-BD49-1234F3E2C2FD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{174131F5-5A08-4724-99B0-D4546B1A3877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{174131F5-5A08-4724-99B0-D4546B1A3877}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{174131F5-5A08-4724-99B0-D4546B1A3877}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{174131F5-5A08-4724-99B0-D4546B1A3877}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
