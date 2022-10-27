@@ -1,45 +1,37 @@
-﻿using FileAppHelper.Constnats;
+﻿using FileApp.Constants;
 using FileAppRepository;
 using FileAppRepository.Interfaces;
 using FileAppRepository.Repositories;
 using FileAppService.Interfaces;
 using FileAppService.Services;
 
-namespace FileApp.Configuration
+namespace FileApp.Configuration;
+
+public static class FileAppServiceCollectionExtensions
 {
-    public static class FileAppServiceCollectionExtensions
+    public static IServiceCollection AddFileAppRepositories(this IServiceCollection services)
     {
-        public static IServiceCollection AddFileAppRepositories(this IServiceCollection services)
-        {
-            services.AddSingleton<IRepositoryConfiguration, RepositoryConfiguration>();
+        services.AddSingleton<IRepositoryConfiguration, RepositoryConfiguration>();
 
-            services.AddTransient<IFileInfoRepository, FileInfoRepository>();
+        services.AddTransient<IFileInfoRepository, FileInfoRepository>();
 
-            services.AddTransient<LocalRepository>();
-            services.AddTransient<AzureRepository>();
+        services.AddTransient<LocalRepository>();
+        services.AddTransient<AzureRepository>();
 
-
-            services.AddTransient<RepositoryResolver>(repositoryProvider => type =>
+        services.AddTransient<RepositoryResolver>(repositoryProvider => type => type switch
             {
-                switch (type)
-                {
-                    case Storage.LocalStorageType:
-                        return repositoryProvider.GetService<LocalRepository>();
-                    case Storage.AzureStorageType:
-                        return repositoryProvider.GetService<AzureRepository>();
-                    default:
-                        return repositoryProvider.GetService<LocalRepository>();
-                }
+                Storage.LocalStorageType => repositoryProvider.GetService<LocalRepository>() ?? throw new ArgumentNullException(),
+                Storage.AzureStorageType => repositoryProvider.GetService<AzureRepository>() ?? throw new ArgumentNullException(),
+                _ => repositoryProvider.GetService<LocalRepository>() ?? throw new ArgumentNullException()
             });
 
-            return services;
-        }
+        return services;
+    }
 
-        public static IServiceCollection AddFileAppServices(this IServiceCollection services)
-        {
-            services.AddTransient<IFileService, FileService>();
+    public static IServiceCollection AddFileAppServices(this IServiceCollection services)
+    {
+        services.AddTransient<IFileService, FileService>();
 
-            return services;
-        }
+        return services;
     }
 }

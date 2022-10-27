@@ -1,10 +1,9 @@
 ﻿using FileAppModel.Models;
 
-namespace FileAppService.Interfaces
+namespace FileAppService.Interfaces;
+
+public interface IFileService
 {
-    public interface IFileService
-    {
-        public void Upload(FileRequest fileRequest);
-        public byte[] Download(FileRequest fileRequest);
-    }
+    public void Upload(FileRequest fileRequest);
+    public byte[] Download(FileRequest fileRequest);
 }

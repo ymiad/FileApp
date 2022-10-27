@@ -1,4 +1,4 @@
-﻿namespace FileAppHelper.Constnats
+﻿namespace FileApp.Constants
 {
     public class Storage
     {

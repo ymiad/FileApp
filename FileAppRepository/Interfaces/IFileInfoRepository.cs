@@ -1,9 +1,8 @@
 ﻿using FileInfo = FileAppModel.DBModels.FileInfo;
 
-namespace FileAppRepository.Interfaces
+namespace FileAppRepository.Interfaces;
+
+public interface IFileInfoRepository
 {
-    public interface IFileInfoRepository
-    {
-        public void Create(FileInfo fileInfo);
-    }
+    public void Create(FileInfo fileInfo);
 }

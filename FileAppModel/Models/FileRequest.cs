@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace FileAppModel.Models
+namespace FileAppModel.Models;
+
+public class FileRequest
 {
-    public class FileRequest
-    {
-        public IFormFile FormFile { get; set; }
-        public string FileName { get; set; }
-        public string Storage { get; set; }
-    }
+    public IFormFile FormFile { get; set; }
+    public string FileName { get; set; }
+    public string Storage { get; set; }
 }

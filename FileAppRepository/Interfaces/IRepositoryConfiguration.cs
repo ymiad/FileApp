@@ -1,11 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace FileAppRepository.Interfaces
+namespace FileAppRepository.Interfaces;
+
+public interface IRepositoryConfiguration
 {
-    public interface IRepositoryConfiguration
-    {
-        string AzureConnectionString { get; }
-        string AzureContainerName { get; }
-        string LocalStoragePath { get; }
-    }
+    string AzureConnectionString { get; }
+    string AzureContainerName { get; }
+    string LocalStoragePath { get; }
 }

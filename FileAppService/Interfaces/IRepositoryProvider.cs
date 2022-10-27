@@ -1,9 +1,8 @@
 ﻿using FileAppRepository.Interfaces;
 
-namespace FileAppService.Interfaces
+namespace FileAppService.Interfaces;
+
+public interface IRepositoryProvider
 {
-    public interface IRepositoryProvider
-    {
-        IFileRepository GetRepository(string type);
-    }
+    IFileRepository GetRepository(string type);
 }
