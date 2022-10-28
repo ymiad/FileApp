@@ -1,8 +1,9 @@
-﻿using FileAppDomain;
+﻿using FileAppApi.Models;
+using FileAppDomain;
 using FileAppDomain.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FileAppWebApi.Controllers;
+namespace FileAppApi.Controllers;
 
 [Route("File")]
 public class FileController : ControllerBase

@@ -1,29 +1,28 @@
-﻿using Microsoft.AspNetCore.Http;
-using FileAppRepository.Interfaces;
+﻿using FileAppDomain.Models;
+using FileAppRepository.Configurations;
+using Microsoft.Extensions.Options;
 
-namespace FileAppRepository.Repositories;
+namespace FileAppDomain.Repositories;
 
 public class LocalRepository : IFileRepository
 {
-    private readonly string _storagePath = string.Empty;
-    public LocalRepository(IRepositoryConfiguration configuration)
+    private readonly LocalStorageOptions _storageOptions;
+    public LocalRepository(IOptions<LocalStorageOptions> localStorageOptions)
     {
-        _storagePath = configuration.LocalStoragePath;
+        _storageOptions = localStorageOptions.Value;
     }
 
-    public void Create(IFormFile file)
+    public void Create(FileContent fileContent)
     {
-        string path = Path.Combine(_storagePath, file.FileName);
+        string path = Path.Combine(_storageOptions.Path, fileContent.FormFile.FileName);
 
-        using (var stream = System.IO.File.Create(path))
-        {
-            file.CopyTo(stream);
-        }
+        using var stream = System.IO.File.Create(path);
+        fileContent.FormFile.CopyTo(stream);
     }
 
     public void Delete(string fileName)
     {
-        string path = Path.Combine(_storagePath, fileName);
+        string path = Path.Combine(_storageOptions.Path, fileName);
         if (File.Exists(path))
         {
             File.Delete(path);
@@ -32,7 +31,7 @@ public class LocalRepository : IFileRepository
 
     public byte[] Get(string fileName)
     {
-        string path = Path.Combine(_storagePath, fileName);
+        string path = Path.Combine(_storageOptions.Path, fileName);
         byte[] bytes = File.ReadAllBytes(path);
         return bytes;
     }

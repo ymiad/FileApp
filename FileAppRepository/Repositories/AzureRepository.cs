@@ -1,32 +1,31 @@
 ﻿using Azure.Storage.Blobs;
-using FileAppRepository.Interfaces;
-using Microsoft.AspNetCore.Http;
+using FileAppDomain.Models;
+using FileAppRepository.Configurations;
+using Microsoft.Extensions.Options;
 
-namespace FileAppRepository.Repositories;
+namespace FileAppDomain.Repositories;
 
 public class AzureRepository : IFileRepository
 {
-    private readonly string _connectionString;
-    private readonly string _containerName;
-    public AzureRepository(IRepositoryConfiguration configuration)
+    private readonly AzureStorageOptions _storageOptions;
+    public AzureRepository(IOptions<AzureStorageOptions> azureStorageOptions)
     {
-        _connectionString = configuration.AzureConnectionString;
-        _containerName = configuration.AzureContainerName;
+        _storageOptions = azureStorageOptions.Value;
     }
 
-    public void Create(IFormFile formFile)
+    public void Create(FileContent fileContent)
     {
-        Stream stream = formFile.OpenReadStream();
+        Stream stream = fileContent.FormFile.OpenReadStream();
 
-        var blobContainerClient = new BlobContainerClient(_connectionString, _containerName);
-        var blobClient = blobContainerClient.GetBlobClient(formFile.FileName);
+        var blobContainerClient = new BlobContainerClient(_storageOptions.ConnectionString, _storageOptions.ContainerName);
+        var blobClient = blobContainerClient.GetBlobClient(fileContent.FormFile.FileName);
 
         blobClient.Upload(stream);
     }
 
     public byte[] Get(string fileName)
     {
-        var blobContainerClient = new BlobContainerClient(_connectionString, _containerName);
+        var blobContainerClient = new BlobContainerClient(_storageOptions.ConnectionString, _storageOptions.ContainerName);
         var blobClient = blobContainerClient.GetBlobClient(fileName);
 
         using var ms = new MemoryStream();
@@ -36,7 +35,7 @@ public class AzureRepository : IFileRepository
 
     public void Delete(string fileName)
     {
-        var blobContainerClient = new BlobContainerClient(_connectionString, _containerName);
+        var blobContainerClient = new BlobContainerClient(_storageOptions.ConnectionString, _storageOptions.ContainerName);
         var blobClient = blobContainerClient.GetBlobClient(fileName);
 
         blobClient.DeleteIfExists();

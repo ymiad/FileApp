@@ -1,4 +1,4 @@
-using FileApp.Configuration;
+using FileAppApi.Configuration;
 using FileAppRepository.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
