@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileAppDomain", "FileAppService\FileAppDomain.csproj", "{6CAFDBCD-BB3E-4A14-8A42-C51C21228DEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileAppDomain", "FileAppDomain\FileAppDomain.csproj", "{6CAFDBCD-BB3E-4A14-8A42-C51C21228DEC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileAppRepository", "FileAppRepository\FileAppRepository.csproj", "{359789AC-CA50-434D-AC34-ACD745102C57}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileAppService", "FileAppServices\FileAppService.csproj", "{6DAB6161-EBF3-4B93-A88E-AFAFB384F625}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileAppService", "FileAppService\FileAppService.csproj", "{6DAB6161-EBF3-4B93-A88E-AFAFB384F625}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAppApi", "FileAppApi\FileAppApi.csproj", "{5DE9B28C-63F2-4E6B-835C-39C0379874BB}"
 EndProject
